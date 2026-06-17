@@ -7,6 +7,13 @@ install: .venv
 producer:
 	env $(shell cat .env | xargs) .venv/bin/python src/producer.py
 
+stream:
+	env $(shell cat .env | xargs) JAVA_HOME=/opt/homebrew/opt/openjdk@17 .venv/bin/python src/spark_job.py
+
+stream-fresh:
+	rm -rf checkpoints/raw-trades
+	env $(shell cat .env | xargs) JAVA_HOME=/opt/homebrew/opt/openjdk@17 .venv/bin/python src/spark_job.py
+
 # extract:
 # 	env $(shell cat .env | xargs) .venv/bin/python src/extraction.py
 

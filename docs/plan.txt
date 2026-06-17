@@ -181,7 +181,7 @@ Create teh docker-compose.yml:
 docker compose up -d
 docker compose logs kafka 2>&1 | tail -20
 
-  docker compose down 
+  docker compose down -v
 
 
 ⏺ Good milestone — producer is running. Before moving to Spark, verify messages are actually landing in Kafka. Run this to consume from the topic and confirm:
@@ -191,7 +191,7 @@ docker compose logs kafka 2>&1 | tail -20
     --topic raw-trades \
     --from-beginning
 
-
+ source .venv/bin/activate
 [2026-06-10 00:14:31,731] INFO [GroupCoordinator 1]: Assignment received from leader console-consumer-f45dc29e-267f-411a-88c1-98f3f7959afc for group console-consumer-13748 for generation 1. The group has 1 members, 0 of which are static. (kafka.coordinator.group.GroupCoordinator)
 
 

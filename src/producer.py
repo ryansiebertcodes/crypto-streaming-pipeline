@@ -8,7 +8,7 @@ producer = confluent_kafka.Producer({'bootstrap.servers': 'localhost:9092'})
 
 def on_message(ws, message):
     print(f"Received: {message}")
-    data = json.loads(message)
+    data = json.loads(message)['data']
     parsed_data = {"symbol": data['s'], 
                    "price": data['p'], 
                    "quantity": data['q'], 
@@ -30,7 +30,8 @@ def on_close(ws, close_status_code, close_msg):
 
 
 if __name__ == "__main__":
-    url = "wss://stream.binance.us:9443/ws/btcusdt@trade"
+    # url = "wss://stream.binance.us:9443/ws/btcusdt@trade"
+    url = "wss://stream.binance.us:9443/stream?streams=btcusdt@trade/ethusdt@trade/solusdt@trade"
 
     # create WebSocketApp pointing at btcusdt@trade
     websocket.enableTrace(True)

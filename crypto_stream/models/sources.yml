@@ -1,0 +1,7 @@
+  sources:
+    - name: public
+      database: crypto
+      schema: public
+      tables:
+        - name: ohlcv_1m
+        - name: anomalies

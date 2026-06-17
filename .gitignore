@@ -4,3 +4,7 @@ __pycache__/
 *.pyc
 checkpoints/
 .DS_Store
+docs/plan.txt
+logs/
+crypto_stream/target/
+crypto_stream/dbt_packages/

@@ -100,9 +100,13 @@ make dbt-all
 | z_score | NUMERIC | Deviation from rolling mean |
 | ohlcv_ref | TIMESTAMPTZ | Reference candle window |
 
+![Live OHLCV data in DBeaver](docs/DBeaverData.png)
+
 ## Anomaly Detection
 
 Z-score computed over a rolling 20-candle lookback window per symbol. Alerts fire to Discord when `abs(z_score) > 2.0` on close price or volume. Requires at least 5 completed candles before detection activates.
+
+![Discord webhook alert](docs/DiscordAlert.png)
 
 ## Sink Abstraction
 
